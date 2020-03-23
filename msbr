@@ -1,0 +1,24 @@
+sai@Adminstrator:~/mydrupal2$ docker run -it ubuntu:18.04 /bin/bash
+Unable to find image 'ubuntu:18.04' locally
+18.04: Pulling from library/ubuntu
+423ae2b273f4: Pull complete 
+de83a2304fa1: Pull complete 
+f9a83bce3af0: Pull complete 
+b6b53be908de: Pull complete 
+Digest: sha256:04d48df82c938587820d7b6006f5071dbbffceb7ca01d2814f81857c631d44df
+Status: Downloaded newer image for ubuntu:18.04
+root@92ac2ef8db40:/# echo 'saibaaljireddy' >/message
+root@92ac2ef8db40:/# exit
+exit
+sai@Adminstrator:~/mydrupal2$ docker ps -all
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS                     PORTS               NAMES
+92ac2ef8db40        ubuntu:18.04        "/bin/bash"         48 seconds ago      Exited (0) 7 seconds ago                       adoring_pike
+sai@Adminstrator:~/mydrupal2$ docker commit  adoring_pike hello-world
+sha256:abe664ad14113a2eaa46cbf3da4d64770136280e6e765f0464c23775fe63eccb
+sai@Adminstrator:~/mydrupal2$ docker image ls
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+hello-world         latest              abe664ad1411        10 seconds ago      64.2MB
+ubuntu              18.04               72300a873c2c        4 days ago          64.2MB
+sai@Adminstrator:~/mydrupal2$ docker run hello-world cat /message
+saibaaljireddy
+

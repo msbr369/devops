@@ -1,0 +1,6 @@
+docker run -it ubuntu:18.04 /bin/bash
+ echo 'saibaaljireddy' >/message
+docker ps -all
+ echo 'saibaaljireddy' >/message
+docker image ls
+ docker run hello-world cat /message

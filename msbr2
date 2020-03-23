@@ -1,0 +1,32 @@
+sai@Adminstrator:~/mydrupal$ docker volume create --name msbr
+msbr
+sai@Adminstrator:~/mydrupal$ docker run -it --rm -v msbr:/Msbr ubuntu
+Unable to find image 'ubuntu:latest' locally
+latest: Pulling from library/ubuntu
+423ae2b273f4: Pull complete 
+de83a2304fa1: Pull complete 
+f9a83bce3af0: Pull complete 
+b6b53be908de: Pull complete 
+Digest: sha256:04d48df82c938587820d7b6006f5071dbbffceb7ca01d2814f81857c631d44df
+Status: Downloaded newer image for ubuntu:latest
+root@8c422984a691:/# echo "saibalaji" > /Msbr/example.txt
+root@8c422984a691:/# exit
+exit
+sai@Adminstrator:~/mydrupal$ docker volume inspect msbr
+[
+    {
+        "CreatedAt": "2020-02-27T10:46:22+05:30",
+        "Driver": "local",
+        "Labels": {},
+        "Mountpoint": "/var/snap/docker/common/var-lib-docker/volumes/msbr/_data",
+        "Name": "msbr",
+        "Options": {},
+        "Scope": "local"
+    }
+]
+sai@Adminstrator:~/mydrupal$ docker run --rm -it -v msbr:/Msbr ubuntu
+root@f3992176dfb0:/# cat /msbr/example.txt
+cat: /msbr/example.txt: No such file or directory
+root@f3992176dfb0:/# cat /Msbr/example.txt
+saibalaji
+
