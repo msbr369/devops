@@ -1,0 +1,4 @@
+FROM ubuntu
+COPY doce.html .
+CMD doce.html
+EXPOSE 9090
