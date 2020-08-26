@@ -1,0 +1,7 @@
+kubectl create -f serviceloadbalancer.yaml
+kubectl get deployments flask-app
+kubectl describe deployments flask-app
+kubectl get replicaset
+kubectl expose deployment flask-app --type=LoadBalancer --name=service
+kubectl describe services service
+curl ExternalIP
